@@ -33,8 +33,7 @@ function createMenu() {
     header.appendChild(nav);
 }
 
-// Ejecuta la función para crear el menú cuando el contenido esté cargado
-document.addEventListener('DOMContentLoaded', createMenu);
+
 
 // Función para crear e insertar el pie de página con botones de redes sociales
 function createFooter() {
@@ -80,3 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createMenu();
     createFooter();
 });
+
+
+// Ejecuta la función para crear el menú cuando el contenido esté cargado
+document.addEventListener('DOMContentLoaded', createMenu);
