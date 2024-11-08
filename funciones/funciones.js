@@ -30,19 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const mensaje = document.getElementById("mensaje").value;
 
             // Codificar el asunto y el cuerpo para el enlace mailto
-            const subject = "Contacto desde el formulario";
-            const body = `Nombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`;
+            const subject = encodeURIComponent("Contacto desde el formulario");
+            const body = encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`);
 
             // Construir el enlace mailto con los datos codificados
-            const mailtoLink = `mailto:jzuazo@birt.eus?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            const mailtoLink = `mailto:jzuazo@birt.eus?subject=${subject}&body=${body}`;
 
-            // Crear un elemento temporal para abrir el enlace mailto
-            const tempLink = document.createElement("a");
-            tempLink.href = mailtoLink;
-            tempLink.style.display = "none"; // Ocultar el enlace en la interfaz
-            document.body.appendChild(tempLink);
-            tempLink.click(); // Ejecutar el enlace mailto
-            document.body.removeChild(tempLink); // Limpiar el enlace temporal
+            // Usar window.open en lugar de window.location.href
+            window.open(mailtoLink, '_self');
 
             // Opcionalmente, puedes reiniciar el formulario
             formulario.reset();
