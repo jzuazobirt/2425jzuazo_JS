@@ -1,16 +1,12 @@
-// funciones.js
+// funciones.js (con EmailJS)
 
-// Función para volver al inicio de la página con animación
+// Inicializar EmailJS con tu ID de usuario
+emailjs.init("YOUR_USER_ID");
+
 function volverAlInicio() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Función para mostrar alerta al hacer clic en eventos
-function mostrarAlertaEvento(nombreEvento) {
-    alert(`Has seleccionado el evento: ${nombreEvento}`);
-}
-
-// Inicializar eventos después de cargar el DOM
 document.addEventListener("DOMContentLoaded", () => {
     // Asignar evento a enlaces de "volver al inicio"
     document.querySelectorAll(".volver-inicio").forEach(enlace => {
@@ -20,19 +16,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Asignar alertas a los eventos destacados
-    document.querySelectorAll(".evento-item h3").forEach(evento => {
-        evento.addEventListener("click", () => mostrarAlertaEvento(evento.textContent));
-    });
-
-    // Enviar alerta personalizada desde el formulario de contacto
-    const formulario = document.querySelector("form");
+    // Interceptar el envío del formulario para usar EmailJS
+    const formulario = document.getElementById("formularioContacto");
     if (formulario) {
-        formulario.addEventListener("submit", (e) => {
-            e.preventDefault();
-            alert("Tu mensaje ha sido enviado. Gracias por contactarnos.");
-            formulario.reset();
+        formulario.addEventListener("submit", function (e) {
+            e.preventDefault(); // Evitar el envío tradicional
+
+            // Enviar formulario a través de EmailJS
+            emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+                .then(() => {
+                    alert("Tu mensaje ha sido enviado. Gracias por contactarnos.");
+                    formulario.reset();
+                }, (error) => {
+                    alert("Hubo un error al enviar el mensaje: " + error.text);
+                });
         });
     }
 });
-
