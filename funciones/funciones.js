@@ -1,4 +1,4 @@
-// menu.js
+// funciones.js
 
 // Función para crear e insertar el menú en el header
 function createMenu() {
