@@ -17,19 +17,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Interceptar el envío del formulario para usar EmailJS
+ document.addEventListener("DOMContentLoaded", () => {
     const formulario = document.getElementById("formularioContacto");
+
     if (formulario) {
         formulario.addEventListener("submit", function (e) {
-            e.preventDefault(); // Evitar el envío tradicional
+            e.preventDefault(); // Evita el envío tradicional del formulario
 
-            // Enviar formulario a través de EmailJS
-            emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
-                .then(() => {
-                    alert("Tu mensaje ha sido enviado. Gracias por contactarnos.");
-                    formulario.reset();
-                }, (error) => {
-                    alert("Hubo un error al enviar el mensaje: " + error.text);
-                });
+            // Obtener los valores del formulario
+            const nombre = document.getElementById("nombre").value;
+            const email = document.getElementById("email").value;
+            const mensaje = document.getElementById("mensaje").value;
+
+            // Construir el enlace mailto con los datos del formulario
+            const mailtoLink = `mailto:jzuazo@birt.eus?subject=Contacto desde el formulario&body=Nombre: ${encodeURIComponent(nombre)}%0AEmail: ${encodeURIComponent(email)}%0AMensaje: ${encodeURIComponent(mensaje)}`;
+
+            // Abrir el cliente de correo predeterminado con el enlace mailto
+            window.location.href = mailtoLink;
+
+            // Opcionalmente, puedes reiniciar el formulario
+            formulario.reset();
         });
     }
 });
