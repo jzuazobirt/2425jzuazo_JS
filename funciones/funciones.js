@@ -33,11 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const subject = encodeURIComponent("Contacto desde el formulario");
             const body = encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`);
 
-            // Construir el enlace mailto con el asunto y el cuerpo codificados
+            // Construir el enlace mailto con los datos codificados
             const mailtoLink = `mailto:jzuazo@birt.eus?subject=${subject}&body=${body}`;
 
-            // Abrir el cliente de correo predeterminado con el enlace mailto
-            window.location.href = mailtoLink;
+            // Abrir el enlace mailto con un pequeño retraso
+            setTimeout(() => {
+                window.location.href = mailtoLink;
+            }, 100); // Ajusta el tiempo si es necesario
 
             // Opcionalmente, puedes reiniciar el formulario
             formulario.reset();
