@@ -26,18 +26,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const mensaje = document.getElementById("mensaje").value;
 
             // Construir el asunto y el cuerpo para el enlace mailto
-            const subject = encodeURIComponent(`Nuevo mensaje de ${nombre}`);
-            const body = encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`);
+            const subject = `Nuevo mensaje de ${nombre}`;
+            const body = `Nombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`;
 
             // Construir el enlace mailto con los datos codificados
-            const mailtoLink = `mailto:jzuazo@birt.eus?subject=${subject}&body=${body}`;
+            const mailtoLink = `mailto:jzuazo@birt.eus?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-            // Abrir el enlace mailto con un pequeño retraso
-            setTimeout(() => {
-                window.location.href = mailtoLink;
-            }, 100); // Ajusta el tiempo si es necesario
+            // Abrir el enlace mailto directamente sin retraso
+            window.location.href = mailtoLink;
 
-            // Opcionalmente, reiniciar el formulario
+            // Opcionalmente, reiniciar el formulario después de abrir el correo
             formulario.reset();
         });
     }
