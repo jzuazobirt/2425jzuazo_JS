@@ -36,3 +36,47 @@ function createMenu() {
 // Ejecuta la función para crear el menú cuando el contenido esté cargado
 document.addEventListener('DOMContentLoaded', createMenu);
 
+// Función para crear e insertar el pie de página con botones de redes sociales
+function createFooter() {
+    console.log("Ejecutando createFooter");  // Mensaje de diagnóstico
+
+    const footer = document.createElement('footer');
+
+    // Texto de derechos reservados
+    const footerText = document.createElement('p');
+    footerText.textContent = "© 2024 Sociedad Gastronómica y Cultural de Bilbao. Todos los derechos reservados.";
+    footer.appendChild(footerText);
+
+    // Contenedor para los botones de redes sociales
+    const socialContainer = document.createElement('div');
+    socialContainer.classList.add('social-buttons');
+
+    // Botón de Instagram
+    const instagramButton = document.createElement('button');
+    instagramButton.textContent = 'Instagram';
+    instagramButton.onclick = () => {
+        window.location.href = 'https://www.instagram.com/panterolo/';
+    };
+    socialContainer.appendChild(instagramButton);
+
+    // Botón de Facebook
+    const facebookButton = document.createElement('button');
+    facebookButton.textContent = 'Facebook';
+    facebookButton.onclick = () => {
+        window.location.href = 'https://www.facebook.com/jesus.zuazo.12';
+    };
+    socialContainer.appendChild(facebookButton);
+
+    // Agregar el contenedor de botones al footer
+    footer.appendChild(socialContainer);
+
+    // Insertar el footer al final del body
+    document.body.appendChild(footer);
+    console.log("Pie de página insertado con botones de redes sociales");  // Mensaje de diagnóstico
+}
+
+// Ejecutar las funciones cuando el contenido esté cargado
+document.addEventListener('DOMContentLoaded', () => {
+    createMenu();
+    createFooter();
+});
