@@ -1,7 +1,4 @@
-// funciones.js (con EmailJS)
-
-// Inicializar EmailJS con tu ID de usuario
-emailjs.init("YOUR_USER_ID");
+// funciones.js (con mailto)
 
 function volverAlInicio() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -16,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Interceptar el envío del formulario para usar EmailJS
+    // Interceptar el envío del formulario para usar mailto
     const formulario = document.getElementById("formularioContacto");
 
     if (formulario) {
@@ -28,27 +25,19 @@ document.addEventListener("DOMContentLoaded", () => {
             const email = document.getElementById("email").value;
             const mensaje = document.getElementById("mensaje").value;
 
-            // Construir el asunto con el nombre del remitente
-            const subject = `Nuevo mensaje de ${nombre}`;
+            // Construir el asunto y el cuerpo para el enlace mailto
+            const subject = encodeURIComponent(`Nuevo mensaje de ${nombre}`);
+            const body = encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`);
 
-            // Enviar los datos a través de EmailJS
-            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
-                from_name: nombre,
-                from_email: email,
-                message: mensaje,
-                subject: subject // Añadir el asunto personalizado
-            }).then(
-                function(response) {
-                    console.log("Correo enviado con éxito", response.status, response.text);
-                    alert("¡Mensaje enviado con éxito!");
-                },
-                function(error) {
-                    console.log("Error al enviar el correo", error);
-                    alert("Hubo un error al enviar el mensaje. Inténtalo de nuevo más tarde.");
-                }
-            );
+            // Construir el enlace mailto con los datos codificados
+            const mailtoLink = `mailto:jzuazo@birt.eus?subject=${subject}&body=${body}`;
 
-            // Reiniciar el formulario después del envío
+            // Abrir el enlace mailto con un pequeño retraso
+            setTimeout(() => {
+                window.location.href = mailtoLink;
+            }, 100); // Ajusta el tiempo si es necesario
+
+            // Opcionalmente, reiniciar el formulario
             formulario.reset();
         });
     }
