@@ -81,5 +81,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Ejecuta la función para crear el menú cuando el contenido esté cargado
-document.addEventListener('DOMContentLoaded', createMenu);
