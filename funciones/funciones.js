@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Interceptar el envío del formulario para usar EmailJS
- document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const formulario = document.getElementById("formularioContacto");
 
     if (formulario) {
@@ -29,8 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const email = document.getElementById("email").value;
             const mensaje = document.getElementById("mensaje").value;
 
-            // Construir el enlace mailto con los datos del formulario
-            const mailtoLink = `mailto:jzuazo@birt.eus?subject=Contacto desde el formulario&body=Nombre: ${encodeURIComponent(nombre)}%0AEmail: ${encodeURIComponent(email)}%0AMensaje: ${encodeURIComponent(mensaje)}`;
+            // Codificar el asunto y el cuerpo para el enlace mailto
+            const subject = encodeURIComponent("Contacto desde el formulario");
+            const body = encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`);
+
+            // Construir el enlace mailto con el asunto y el cuerpo codificados
+            const mailtoLink = `mailto:jzuazo@birt.eus?subject=${subject}&body=${body}`;
 
             // Abrir el cliente de correo predeterminado con el enlace mailto
             window.location.href = mailtoLink;
