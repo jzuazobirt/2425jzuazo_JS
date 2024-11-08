@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Interceptar el envío del formulario para usar EmailJS
-document.addEventListener("DOMContentLoaded", () => {
     const formulario = document.getElementById("formularioContacto");
 
     if (formulario) {
@@ -29,19 +28,27 @@ document.addEventListener("DOMContentLoaded", () => {
             const email = document.getElementById("email").value;
             const mensaje = document.getElementById("mensaje").value;
 
-            // Codificar el asunto y el cuerpo para el enlace mailto
-            const subject = encodeURIComponent("Contacto desde el formulario");
-            const body = encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`);
+            // Construir el asunto con el nombre del remitente
+            const subject = `Nuevo mensaje de ${nombre}`;
 
-            // Construir el enlace mailto con los datos codificados
-            const mailtoLink = `mailto:jzuazo@birt.eus?subject=${subject}&body=${body}`;
+            // Enviar los datos a través de EmailJS
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+                from_name: nombre,
+                from_email: email,
+                message: mensaje,
+                subject: subject // Añadir el asunto personalizado
+            }).then(
+                function(response) {
+                    console.log("Correo enviado con éxito", response.status, response.text);
+                    alert("¡Mensaje enviado con éxito!");
+                },
+                function(error) {
+                    console.log("Error al enviar el correo", error);
+                    alert("Hubo un error al enviar el mensaje. Inténtalo de nuevo más tarde.");
+                }
+            );
 
-            // Abrir el enlace mailto con un pequeño retraso
-            setTimeout(() => {
-                window.location.href = mailtoLink;
-            }, 100); // Ajusta el tiempo si es necesario
-
-            // Opcionalmente, puedes reiniciar el formulario
+            // Reiniciar el formulario después del envío
             formulario.reset();
         });
     }
