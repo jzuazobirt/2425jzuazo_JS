@@ -80,4 +80,19 @@ document.addEventListener('DOMContentLoaded', () => {
     createFooter();
 });
 
+// Cambio tamaño de foto para historia por ejemplo
+function ajustarTamanoFotos() {
+    // Selecciona todas las imágenes con la clase "foto-ajustable"
+    const fotos = document.querySelectorAll('.foto-ajustable');
+
+    // Define el tamaño deseado para las fotos
+    const anchoDeseado = '500px';
+    const altoDeseado = 'auto';
+
+    // Aplica el estilo a cada imagen
+    fotos.forEach(foto => {
+        foto.style.width = anchoDeseado;
+        foto.style.height = altoDeseado;
+    });
+}
 
