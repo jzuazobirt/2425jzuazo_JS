@@ -97,12 +97,16 @@ function ajustarTamanoFotos() {
 }
 
 // Función para que el título parpade utilizado por ejemplo en eventos
-// Función para hacer que el título H1 parpadee
+// Función para hacer que el título H1 parpadee 
 function iniciarParpadeoTitulo() {
     const titulo = document.getElementById('titulo-eventos');
+    let opacidadAlta = true;
+    
     setInterval(() => {
-        // Alterna la visibilidad del título H1 entre 'none' y 'block'
-        titulo.style.display = (titulo.style.display === 'none') ? 'block' : 'none';
-    }, 500); // Cambia cada 500 ms (0.5 segundos) para un parpadeo constante
+        // Alterna la opacidad entre 1 y 0.5 para un efecto de parpadeo suave
+        titulo.style.opacity = opacidadAlta ? '1' : '0.5';
+        opacidadAlta = !opacidadAlta;
+    }, 500); // Cambia cada 500 ms (0.5 segundos)
 }
+
 
