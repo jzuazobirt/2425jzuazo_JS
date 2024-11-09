@@ -8,17 +8,9 @@
     <link rel="stylesheet" href="estilos/estilos.css">
 </head>
 <body>
-    <!-- Menú de navegación único -->
+    <!-- Contenedor de menú de navegación dinámico -->
     <header id="top">
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#historia">Historia</a></li>
-                <li><a href="#eventos">Eventos</a></li>
-                <li><a href="#recetas">Recetas</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
+        <nav id="menu"></nav> <!-- JavaScript generará el menú aquí -->
     </header>
 
     <!-- Contenido principal de la página -->
@@ -57,6 +49,7 @@
     <script src="funciones/funciones.js"></script>
     <script>
         window.onload = function() {
+            generarMenu(); // Llama a la función para generar el menú
             iniciarParpadeoTitulo(); // Inicia el parpadeo del título H1
         };
     </script>
