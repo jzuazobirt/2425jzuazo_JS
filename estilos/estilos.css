@@ -131,6 +131,6 @@ footer {
 
 /* Ajustes para listas numeradas alineadas */
 ul, ol {
-    padding-left: 20px; /* Ajusta este valor según el alineado que prefieras */
+    padding-left: 20px; /* Ajusta este valor según el alineado que uno elija */
     list-style-position: inside; /* Esto coloca los números dentro del contenedor */
 }
