@@ -1,4 +1,4 @@
-// Función para crear e insertar el menú en el header
+// Función para crear e insertar el menú en el header, el menu con el que navegaremos entre páginas
 function createMenu() {
     // Selecciona el elemento header con id "top"
     const header = document.getElementById('top');
@@ -77,7 +77,7 @@ function createFooter() {
     document.body.appendChild(footer);
 }
 
-// Función para ajustar el tamaño de las fotos
+// Función para ajustar el tamaño de las fotos utilizado principalmente como ejemplo en "historia"
 function ajustarTamanoFotos() {
     // Selecciona todas las imágenes con la clase "foto-ajustable"
     const fotos = document.querySelectorAll('.foto-ajustable');
@@ -93,7 +93,7 @@ function ajustarTamanoFotos() {
     });
 }
 
-// Función para hacer que el título H1 parpadee 
+// Función para hacer que el título H1 parpadee, utilizado como ejemplo en eventos
 function iniciarParpadeoTitulo() {
     const titulo = document.getElementById('titulo-eventos');
 
