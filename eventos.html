@@ -9,7 +9,7 @@
 </head>
 <body>
     <!-- Menú de navegación dinámico -->
-    <header id="top"></header> <!-- El menú se insertará aquí mediante JavaScript -->
+    <header id="top"></header> <!-- Este encabezado parpadeará -->
 
     <!-- Contenido principal de la página -->
     <main>
@@ -44,6 +44,11 @@
     </footer>-->
 
     <!-- Enlace a JavaScript -->
-    <script src="funciones/funciones.js"></script> <!-- Referencia al archivo funciones.js -->
+    <script src="funciones/funciones.js"></script>
+    <script>
+        window.onload = function() {
+            iniciarParpadeo(); // Llama a la función para iniciar el parpadeo
+        };
+    </script>
 </body>
 </html>
