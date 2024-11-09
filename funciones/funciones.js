@@ -113,6 +113,10 @@ function iniciarParpadeoTitulo() {
 }
 
 
+function intercambiarImagen(imagen, foto1, foto2) {
+    // Cambia la imagen de fuente entre foto1 y foto2
+    imagen.src = imagen.src.includes(foto1) ? foto2 : foto1;
+}
   
 
 
