@@ -120,5 +120,5 @@ function iniciarParpadeoTitulo() {
 document.addEventListener('DOMContentLoaded', () => {
     createMenu();
     createFooter();
-    iniciarParpadeoTitulo();
+    //iniciarParpadeoTitulo();
 });
