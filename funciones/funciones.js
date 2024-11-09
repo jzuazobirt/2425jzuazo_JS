@@ -118,6 +118,17 @@ function intercambiarImagen(imagen, foto1, foto2) {
     imagen.src = imagen.src.includes(foto1) ? foto2 : foto1;
 }
   
+function mostrarSaludo(saludo) {
+    // Obtener el valor del campo de nombre
+    const nombre = document.getElementById("nombre").value;
+
+    // Crear el mensaje de saludo
+    const mensaje = saludo + " " + nombre;
+
+    // Mostrar el mensaje en el cuadro de texto de saludo
+    document.getElementById("saludo").value = mensaje;
+}
+
 
 
 // Ejecutar las funciones cuando el contenido esté cargado
