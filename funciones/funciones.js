@@ -97,12 +97,12 @@ function ajustarTamanoFotos() {
 }
 
 // Función para que el título parpade utilizado por ejemplo en eventos
-// Función para hacer que la cabecera parpadee
-function iniciarParpadeo() {
-    const header = document.getElementById('top');
+// Función para hacer que el título H1 parpadee
+function iniciarParpadeoTitulo() {
+    const titulo = document.getElementById('titulo-eventos');
     setInterval(() => {
-        // Alterna la visibilidad del encabezado
-        header.style.visibility = (header.style.visibility === 'hidden') ? 'visible' : 'hidden';
+        // Alterna la visibilidad del título H1
+        titulo.style.visibility = (titulo.style.visibility === 'hidden') ? 'visible' : 'hidden';
     }, 500); // Cambia cada 500 ms (0.5 segundos) para un parpadeo constante
 }
 
