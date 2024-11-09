@@ -3,8 +3,10 @@ function createMenu() {
     // Selecciona el elemento header con id "top"
     const header = document.getElementById('top');
 
-    // Limpia cualquier contenido previo en el header para evitar duplicados
-    header.innerHTML = '';
+    // Verifica si el menú ya ha sido creado
+    if (header.querySelector('nav')) {
+        return; // Si el nav ya existe, no hace nada para evitar duplicados
+    }
 
     // Crea los elementos nav y ul
     const nav = document.createElement('nav');
@@ -36,7 +38,10 @@ function createMenu() {
 
 // Función para crear e insertar el pie de página con botones de redes sociales
 function createFooter() {
-    console.log("Ejecutando createFooter");  // Mensaje de diagnóstico
+    const existingFooter = document.querySelector('footer');
+    if (existingFooter) {
+        return; // Si el footer ya existe, no hace nada para evitar duplicados
+    }
 
     const footer = document.createElement('footer');
 
@@ -70,7 +75,6 @@ function createFooter() {
 
     // Insertar el footer al final del body
     document.body.appendChild(footer);
-    console.log("Pie de página insertado con botones de redes sociales");  // Mensaje de diagnóstico
 }
 
 // Función para ajustar el tamaño de las fotos
