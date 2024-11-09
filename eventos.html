@@ -9,11 +9,19 @@
 </head>
 <body>
     <!-- Menú de navegación dinámico -->
-    <header id="top"></header> <!-- Este encabezado parpadeará -->
+    <header id="top">
+        <nav>
+            <ul>
+                <li><a href="#historia">Historia</a></li>
+                <li><a href="#eventos">Eventos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- Contenido principal de la página -->
     <main>
-        <h1>Próximos Eventos</h1>
+        <h1 id="titulo-eventos">Próximos Eventos</h1> <!-- Este título es el que parpadeará -->
         <p>Únete a nosotros en nuestros próximos eventos y descubre la pasión por la gastronomía y la cultura que compartimos.</p>
 
         <!-- Lista de eventos -->
@@ -39,7 +47,7 @@
     </main>
 
     <!-- Pie de página -->
-   <!-- <footer>
+    <!--<footer>
         <p>&copy; 2024 Sociedad Gastronómica y Cultural de Bilbao. Todos los derechos reservados.</p>
     </footer>-->
 
@@ -47,7 +55,7 @@
     <script src="funciones/funciones.js"></script>
     <script>
         window.onload = function() {
-            iniciarParpadeoTitulo(); // Llama a la función para iniciar el parpadeo
+            iniciarParpadeoTitulo(); // Inicia el parpadeo del título H1
         };
     </script>
 </body>
