@@ -1,9 +1,10 @@
-// funciones.js
-
 // Función para crear e insertar el menú en el header
 function createMenu() {
     // Selecciona el elemento header con id "top"
     const header = document.getElementById('top');
+
+    // Limpia cualquier contenido previo en el header para evitar duplicados
+    header.innerHTML = '';
 
     // Crea los elementos nav y ul
     const nav = document.createElement('nav');
@@ -32,8 +33,6 @@ function createMenu() {
     nav.appendChild(ul);
     header.appendChild(nav);
 }
-
-
 
 // Función para crear e insertar el pie de página con botones de redes sociales
 function createFooter() {
@@ -74,13 +73,7 @@ function createFooter() {
     console.log("Pie de página insertado con botones de redes sociales");  // Mensaje de diagnóstico
 }
 
-// Ejecutar las funciones cuando el contenido esté cargado
-document.addEventListener('DOMContentLoaded', () => {
-    createMenu();
-    createFooter();
-});
-
-// Cambio tamaño de foto utilizado para historia por ejemplo
+// Función para ajustar el tamaño de las fotos
 function ajustarTamanoFotos() {
     // Selecciona todas las imágenes con la clase "foto-ajustable"
     const fotos = document.querySelectorAll('.foto-ajustable');
@@ -96,8 +89,7 @@ function ajustarTamanoFotos() {
     });
 }
 
-// Función para que el título parpade utilizado por ejemplo en eventos
-// Función para hacer que el título H1 parpadee 
+// Función para hacer que el título H1 parpadee suavemente
 function iniciarParpadeoTitulo() {
     const titulo = document.getElementById('titulo-eventos');
     let opacidadAlta = true;
