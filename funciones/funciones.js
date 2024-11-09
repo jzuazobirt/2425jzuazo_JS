@@ -109,4 +109,8 @@ function iniciarParpadeoTitulo() {
     }, 500); // Cambia cada 500 ms (0.5 segundos)
 }
 
-
+// Ejecutar las funciones cuando el contenido esté cargado
+document.addEventListener('DOMContentLoaded', () => {
+    createMenu();
+    createFooter();
+});
