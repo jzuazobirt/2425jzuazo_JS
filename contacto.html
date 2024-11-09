@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Sociedad Gastronómica y Cultural de Bilbao</title>
     <link rel="stylesheet" href="estilos/estilos.css">
+    <script>
+        function mostrarSaludo(saludo) {
+            // Obtener el valor del campo de nombre
+            const nombre = document.getElementById("nombre").value;
+
+            // Crear el mensaje de saludo
+            const mensaje = saludo + " " + nombre;
+
+            // Mostrar el mensaje en el cuadro de texto de saludo
+            document.getElementById("saludo").value = mensaje;
+        }
+    </script>
 </head>
 <body>
     <!-- Menú de navegación dinámico -->
@@ -19,7 +31,10 @@
         <!-- Formulario de contacto -->
         <form action="mailto:jzuazo@birt.eus" method="post" enctype="text/plain">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
+            <input type="text" id="nombre" name="nombre" required oninput="mostrarSaludo('Kaixo')">
+            
+            <!-- Cuadro de texto para mostrar el saludo -->
+            <input type="text" id="saludo" placeholder="Saludo" readonly>
 
             <label for="email">Correo electrónico:</label>
             <input type="email" id="email" name="email" required>
@@ -40,3 +55,4 @@
     <script src="funciones/funciones.js"></script> <!-- Referencia al archivo funciones.js -->
 </body>
 </html>
+
