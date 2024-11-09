@@ -101,8 +101,8 @@ function ajustarTamanoFotos() {
 function iniciarParpadeoTitulo() {
     const titulo = document.getElementById('titulo-eventos');
     setInterval(() => {
-        // Alterna la visibilidad del título H1
-        titulo.style.visibility = (titulo.style.visibility === 'hidden') ? 'visible' : 'hidden';
+        // Alterna la visibilidad del título H1 entre 'none' y 'block'
+        titulo.style.display = (titulo.style.display === 'none') ? 'block' : 'none';
     }, 500); // Cambia cada 500 ms (0.5 segundos) para un parpadeo constante
 }
 
