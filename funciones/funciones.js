@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createFooter();
 });
 
-// Cambio tamaño de foto para historia por ejemplo
+// Cambio tamaño de foto utilizado para historia por ejemplo
 function ajustarTamanoFotos() {
     // Selecciona todas las imágenes con la clase "foto-ajustable"
     const fotos = document.querySelectorAll('.foto-ajustable');
@@ -94,5 +94,15 @@ function ajustarTamanoFotos() {
         foto.style.width = anchoDeseado;
         foto.style.height = altoDeseado;
     });
+}
+
+// Función para que el título parpade utilizado por ejemplo en eventos
+// Función para hacer que la cabecera parpadee
+function iniciarParpadeo() {
+    const header = document.getElementById('top');
+    setInterval(() => {
+        // Alterna la visibilidad del encabezado
+        header.style.visibility = (header.style.visibility === 'hidden') ? 'visible' : 'hidden';
+    }, 500); // Cambia cada 500 ms (0.5 segundos) para un parpadeo constante
 }
 
